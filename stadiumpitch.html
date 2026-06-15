@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Interactive Football Stadium Learning Project - Learn HTML images, maps, background images and picture elements">
+    <title>Football Stadium - HTML Images Learning Project</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* BACKGROUND IMAGE EXAMPLE */
+        .hero-section {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), 
+                              url("image/football pitch.jpg");
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: white;
+            padding: 100px 20px;
+            text-align: center;
+            min-height: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero-section h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+        }
+
+        .hero-section p {
+            font-size: 1.3em;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        section {
+            background: #f9f9f9;
+            margin: 30px 0;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: #1e3c72;
+            margin-bottom: 15px;
+            border-bottom: 3px solid #2a5298;
+            padding-bottom: 10px;
+        }
+
+        h3 {
+            color: #2a5298;
+            margin-top: 10px;
+        }
+
+        /* STANDARD IMAGE EXAMPLE */
+        .standard-img {
+            width: 100%;
+            max-width: 600px;
+            height: auto;
+            display: block;
+            margin: 15px auto;
+            border-radius: 8px;
+            border: 3px solid #2a5298;
+        }
+
+        /* IMAGE MAP SECTION */
+        #stadium-map {
+            width: 100%;
+            height: auto;
+            cursor: pointer;
+            border: 2px solid #1e3c72;
+            border-radius: 8px;
+        }
+
+        area {
+            cursor: pointer;
+        }
+
+        area:hover {
+            opacity: 0.8;
+        }
+
+        /* PICTURE ELEMENT STYLES */
+        .picture-img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+
+        /* INFO BOXES */
+        .info-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 15px 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .info-box h3 {
+            color: #fff;
+            margin-top: 0;
+        }
+
+        .info-box ul {
+            list-style-position: inside;
+        }
+
+        .info-box li {
+            padding: 5px 0;
+        }
+
+        .highlight {
+            background-color: #fff3cd;
+            padding: 10px;
+            border-left: 4px solid #ffc107;
+            margin: 10px 0;
+            border-radius: 4px;
+        }
+
+        code {
+            background: #e9ecef;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            color: #d63384;
+        }
+
+        footer {
+            background: #1e3c72;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
+
+        @media (max-width: 768px) {
+            .hero-section h1 {
+                font-size: 2em;
+            }
+            
+            .hero-section p {
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- BACKGROUND IMAGE EXAMPLE -->
+    <div class="hero-section">
+        <h1>⚽ Football Stadium Project</h1>
+        <p>Learn HTML Images, Maps, Background Images & Picture Elements</p>
+    </div>
+
+    <div class="container">
+
+        <!-- STANDARD IMAGE EXAMPLE -->
+        <section>
+            <h2>1. Standard Image (&lt;img&gt;) Example</h2>
+            <p>The <code>&lt;img&gt;</code> tag displays an image. Always include an <code>alt</code> attribute for accessibility and SEO.</p>
+            <img src="image/football pitch.jpg" alt="Professional football pitch with green grass and white markings" class="standard-img">
+            <div class="highlight">
+                <strong>Key Points:</strong>
+                <ul>
+                    <li>Use <code>src</code> attribute for image path</li>
+                    <li>Use <code>alt</code> attribute to describe the image</li>
+                    <li>Use CSS to make images responsive</li>
+                    <li>Images load when needed (lazy loading available)</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- IMAGE MAP EXAMPLE -->
+        <section>
+            <h2>2. Image Map (&lt;map&gt; & &lt;area&gt;) Example</h2>
+            <p>Click different areas of the stadium to learn about sections. An image map creates clickable regions within an image.</p>
+            <img id="stadium-map" src="image/football pitch.jpg" alt="Stadium pitch divided into interactive zones" usemap="#stadiummap">
+            
+            <map name="stadiummap">
+                <area shape="rect" coords="10,50,200,200" href="#north-stand" alt="North Stand Section">
+                <area shape="circle" coords="300,150,80" href="#center-field" alt="Center Field">
+                <area shape="rect" coords="400,50,550,200" href="#south-stand" alt="South Stand Section">
+                <area shape="poly" coords="100,250,200,250,250,350,50,350" href="#goal-area" alt="Goal Area">
+            </map>
+
+            <div class="highlight">
+                <strong>Image Map Explained:</strong>
+                <ul>
+                    <li><code>&lt;map name="name"&gt;</code> - Container for clickable areas</li>
+                    <li><code>&lt;area&gt;</code> - Defines clickable regions</li>
+                    <li><code>shape</code> - rect, circle, or poly (polygon)</li>
+                    <li><code>coords</code> - Pixel coordinates of the region</li>
+                    <li><code>href</code> - Where the link goes</li>
+                </ul>
+            </div>
+
+            <div class="info-box" id="north-stand">
+                <h3>📍 North Stand</h3>
+                <ul>
+                    <li>Capacity: 5,000 seats</li>
+                    <li>View Quality: Excellent</li>
+                    <li>Features: VIP boxes, restaurant</li>
+                </ul>
+            </div>
+
+            <div class="info-box" id="center-field">
+                <h3>⚽ Center Field</h3>
+                <ul>
+                    <li>Length: 115 yards</li>
+                    <li>Width: 75 yards</li>
+                    <li>Surface: Premium grass</li>
+                </ul>
+            </div>
+
+            <div class="info-box" id="south-stand">
+                <h3>📍 South Stand</h3>
+                <ul>
+                    <li>Capacity: 4,500 seats</li>
+                    <li>View Quality: Great</li>
+                    <li>Features: Family section</li>
+                </ul>
+            </div>
+
+            <div class="info-box" id="goal-area">
+                <h3>⚽ Goal Area</h3>
+                <ul>
+                    <li>Length: 20 yards</li>
+                    <li>Width: 6 yards</li>
+                    <li>Where: Goals are scored!</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- BACKGROUND IMAGE EXAMPLE -->
+        <section>
+            <h2>3. Background Image (CSS) Example</h2>
+            <p>Background images are applied using CSS <code>background-image</code> property. They're used for decorative elements and can be combined with other background properties.</p>
+            <div class="highlight">
+                <strong>Background Image Properties:</strong>
+                <ul>
+                    <li><code>background-image: url()</code> - Sets the image</li>
+                    <li><code>background-size: cover/contain</code> - How the image fills space</li>
+                    <li><code>background-position: center</code> - Where the image aligns</li>
+                    <li><code>background-attachment: fixed</code> - Parallax effect</li>
+                    <li><code>background-repeat: no-repeat</code> - Controls repetition</li>
+                </ul>
+            </div>
+            <p><strong>Notice:</strong> The hero section at the top uses a background image with a dark overlay for readability. This is a common web design pattern!</p>
+        </section>
+
+        <!-- PICTURE ELEMENT EXAMPLE -->
+        <section>
+            <h2>4. Picture Element (&lt;picture&gt;) Example</h2>
+            <p>The <code>&lt;picture&gt;</code> element provides responsive images by letting the browser choose the best image for different screen sizes and formats.</p>
+            
+            <picture>
+                <!-- Large screens: HD image -->
+                <source media="(min-width: 1200px)" srcset="image/football pitch.jpg">
+                <!-- Medium screens: standard image -->
+                <source media="(min-width: 768px)" srcset="image/football pitch.jpg">
+                <!-- Mobile screens: mobile-optimized -->
+                <img src="image/football pitch.jpg" alt="Responsive football pitch image for all devices" class="picture-img">
+            </picture>
+
+            <div class="highlight">
+                <strong>Picture Element Benefits:</strong>
+                <ul>
+                    <li>Responsive images for different devices</li>
+                    <li>Bandwidth optimization (serve smaller images to mobile)</li>
+                    <li>Support for different image formats (WebP, JPEG, PNG)</li>
+                    <li>Better performance and user experience</li>
+                    <li>Browser chooses best image automatically</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- SUMMARY SECTION -->
+        <section>
+            <h2>Summary: Image Tags Used in This Project</h2>
+            <table style="width: 100%; border-collapse: collapse;">
+                <tr style="background: #2a5298; color: white;">
+                    <th style="padding: 10px; border: 1px solid #ddd; text-align: left;">Element</th>
+                    <th style="padding: 10px; border: 1px solid #ddd; text-align: left;">Purpose</th>
+                    <th style="padding: 10px; border: 1px solid #ddd; text-align: left;">Use Case</th>
+                </tr>
+                <tr style="background: #f5f5f5;">
+                    <td style="padding: 10px; border: 1px solid #ddd;"><code>&lt;img&gt;</code></td>
+                    <td style="padding: 10px; border: 1px solid #ddd;">Display single image</td>
+                    <td style="padding: 10px; border: 1px solid #ddd;">Photos, logos, simple images</td>
+                </tr>
+                <tr>
+                    <td style="padding: 10px; border: 1px solid #ddd;"><code>&lt;map&gt; & &lt;area&gt;</code></td>
+                    <td style="padding: 10px; border: 1px solid #ddd;">Create interactive hotspots</td>
+                    <td style="padding: 10px; border: 1px solid #ddd;">Maps, diagrams, infographics</td>
+                </tr>
+                <tr style="background: #f5f5f5;">
+                    <td style="padding: 10px; border: 1px solid #ddd;"><code>background-image</code></td>
+                    <td style="padding: 10px; border: 1px solid #ddd;">CSS background decoration</td>
+                    <td style="padding: 10px; border: 1px solid #ddd;">Hero sections, decorative backdrops</td>
+                </tr>
+                <tr>
+                    <td style="padding: 10px; border: 1px solid #ddd;"><code>&lt;picture&gt;</code></td>
+                    <td style="padding: 10px; border: 1px solid #ddd;">Responsive image selection</td>
+                    <td style="padding: 10px; border: 1px solid #ddd;">Multiple device sizes, formats</td>
+                </tr>
+            </table>
+        </section>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Football Stadium HTML Learning Project | Master HTML Images & Responsive Design</p>
+    </footer>
+
+</body>
+</html>
